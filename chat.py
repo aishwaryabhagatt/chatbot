@@ -12,7 +12,7 @@ with open('intents.json') as file:
 @st.cache_resource
 def load_model():
     try:
-        model = keras.models.load_model('chat-model')
+        model = keras.models.load_model('chat-model.h5')
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")
