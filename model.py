@@ -60,11 +60,12 @@ model.compile(loss='sparse_categorical_crossentropy',
 
 model.summary()
 
+# Train the model
 epochs = 500
 history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
 
-# Save the trained model
-model.save('chat-model')
+# Save the trained model in HDF5 format
+model.save('chat-model.h5')
 
 # Save the fitted tokenizer
 with open('tokenizer.pickle', 'wb') as handle:
