@@ -1,5 +1,5 @@
+numpy
 tensorflow
-sklearn
-nltk
+scikit-learn
 colorama
-flask
+streamlit
