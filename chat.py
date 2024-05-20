@@ -11,9 +11,17 @@ with open('intents.json') as file:
 
 @st.cache_resource
 def load_model():
-    return keras.models.load_model('chat-model')
+    try:
+        model = keras.models.load_model('chat-model')
+        return model
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+        return None
 
 model = load_model()
+
+if model is None:
+    st.stop()
 
 # Load tokenizer object
 with open('tokenizer.pickle', 'rb') as handle:
