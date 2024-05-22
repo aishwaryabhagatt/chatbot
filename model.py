@@ -6,10 +6,11 @@ warnings.filterwarnings("ignore")
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Embedding, GlobalAveragePooling1D
+from tensorflow.keras.layers import Dense, Embedding, GlobalAveragePooling1D, Bidirectional
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
+from tensorflow.keras import layers
 
 # Load the json file
 with open('intents.json') as file:
@@ -60,7 +61,6 @@ model.compile(loss='sparse_categorical_crossentropy',
 
 model.summary()
 
-# Train the model
 epochs = 500
 history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
 
